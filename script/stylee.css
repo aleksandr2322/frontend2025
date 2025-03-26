@@ -1,0 +1,10 @@
+card.expanded {
+    transform: scale(1.2);
+    z-index: 1; 
+    transition: transform 0.3s ease;
+  }
+  card.expanded {
+    transform: scale(1.2);
+    z-index: 1; 
+    transition: transform 0.3s ease;
+  }
