@@ -5,16 +5,75 @@
 @import "blocks/footer.css";
 @import "blocks/card.css.";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+.preloader {
+  /*фиксированное позиционирование*/
+  position: fixed;
+  /* координаты положения */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* фоновый цвет элемента */
+  background: #e0e0e0;
+  /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+  z-index: 1001;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
+.preloader__row {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  background-color: #337ab7;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-bounce {
+
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
 }
 .container {
   width: 90%;
@@ -279,13 +338,36 @@ header nav .Login:hover {
 .connect {
   max-width: 600px; 
 }
-.features h2 {
-  font-size: 24px; 
-  margin-bottom: 10px; 
+.features button  {
+  font-size: 25px; 
+  margin-bottom: 10px;
+  display: flex;
+  background-color:#ffffff;
+  color:#000000;
+  border: none;
+  cursor: pointer;
 }
-.features p {
+.features button:hover  {
+  color:#3D1EDD;
+  cursor: pointer;
+}
+.features text {
   font-size: 15px;
   color:#707070;
+}
+.features a {
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+.features hr{
+  width: 366px;
+  height: 8px;
+  background-color:#dad7d7a9;
+  border: 2px solid #ffffff; 
+}
+.features hr:hover{
+  background-color:#3D1EDD;
 }
 
 .content_section_CTA {
@@ -314,6 +396,7 @@ header nav .Login:hover {
   color: #707070;
 }
 .text h1{
+  display: flex; 
   font-size: 40px; 
   margin-bottom: 20px;
 }
@@ -456,7 +539,7 @@ header nav .Login:hover {
 .modal-content form button {
   background-color: #3D1EDD;
   color: white;
-  border: none;
+  border: none;;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;

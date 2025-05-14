@@ -7,7 +7,27 @@
     <title>Jobly</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
+
+
+  
+
 <body> 
+<script>
+  window.onload = function () {
+    document.body.classList.add('loaded_hiding');
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+      document.body.classList.remove('loaded_hiding');
+    }, 500);
+  }
+</script>
+    <div class="preloader">
+  <div class="preloader__row">
+    <div class="preloader__item"></div>
+    <div class="preloader__item"></div>
+  </div>
+</div>
+    </div>
     <header>
         <div class="container">
             <div class="log"><p>Jobly</p></div>
@@ -67,25 +87,23 @@
             <div class = "container">
                 <h1>Everything you want to know in one place.</h1>
             <img src="img/Frame 1625.svg" alt="forms image" class="forms-image">
-            // <div class="features" id="cards"></div> 
-            
+            <div class="features">
                 <div class="feature">
                     <hr>
-                    <h2>Professional Profile</h2>
-                    <p>We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter</p>
+                    <button class="btn">Professional Profile</button>
+                    <div class="text">We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter</div>
                 </div>
-                <div class="feature">
+                <div class="feature">                    
                     <hr>
-                    <h2>Best Portfolio</h2>
-                    <p>We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter</p>
+                    <button class="btn">Best Portfolio</button>
+                    <div class="text">We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter</div>
                 </div>
-                <div class="feature">
+                <div class="feature">                   
                     <hr>
-                    <h2>Powerful Resume</h2>
-                    <p>We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by</p>
-             
+                    <button class="btn">Powerful Resume</button>
+                    <div class="text">We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by</div>
+                </div>
             </div>
-        </div>
         </div>
     </section>
 
