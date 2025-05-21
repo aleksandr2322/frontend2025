@@ -17,38 +17,15 @@
               // const nextButton = document.querySelector('.next-slide');
               // let currentSlide = 0;
 
- //const modal =document.getElementById('loginmodal')
+//  const modal =document.getElementById('loginmodal')
 // const btn =document.getElementById('loginBtn' )
- //const span =document.getElementById( 'close')
+//  const span =document.getElementById( 'close')
 // const form =document.getElementById( 'loginform')
- //const errorMsg = document.createElement('div');
-   // errorMsg.className = 'error-message';
-    // form.appendChild(errorMsg);
+//  const errorMsg = document.createElement('div');
+//    errorMsg.className = 'error-message';
+//     form.appendChild(errorMsg);
   
 
-//const cards={
-   //card_1: {
-    //   name: 'Professional Profile',
-    //   text: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
-   //},
-    //card_2:{
-     //  name: ' Best Portfolio',
-     //   text: ' We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
-   //},
-    //card_3:{
-       // name: ' Powerful Resume',
-       // text: ' We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by',
-    //},
-
-//}
-
-//const template = `<div class="feature">
-                  //  <hr>
-                  //  <h2>${this.title}</h2>
-                  //  <p>${this.body}</p>
-               // </div>`;
-
-//const cardsContainer = document.getElementById('cards'); //ссылка для карточек 
 
 
 //const modalContainer = document.querySelector('#loginModal');
@@ -71,6 +48,20 @@
   //  var preloader = this.document.getElementById('preloader');
   //  preloader.style.display = 'none';
 //});
+
+
+
+
+
+
+
+
+
+
+
+
+//карточки 
+
 document.addEventListener('DOMContentLoaded', function() {
     const loginModal = document.getElementById('loginModal');
     const registerModal = document.getElementById('registerModal');
@@ -98,3 +89,104 @@ modalWindow.addEventListener('click', (e) => {
     }
 });
 });
+ var slides = document.querySelectorAll(".hero-image");
+  var currentSlide = 0;
+  var totalSlides = slides.length;
+
+  function showSlide(index) {
+    slides.forEach(function (slide, i) {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  if (totalSlides > 0) {
+    showSlide(currentSlide);
+    setInterval(function () {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }, 3000);
+  }
+
+  function updateImage(src) {
+    var imageElement = document.getElementById("infImage");
+    if (imageElement) {
+      imageElement.src = src;
+    } else {
+      console.error('Элемент с id "infImage" не найден.');
+    }
+  }
+  window.updateImage = updateImage;
+
+
+const cards={
+   card_1: {
+       name: 'Professional Profile',
+       text: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
+   },
+    card_2:{
+       name: ' Best Portfolio',
+       text: ' We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
+   },
+    card_3:{
+        name: ' Powerful Resume',
+        text: ' We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by',
+    },
+
+}
+
+
+const template = `<div class="feature">
+                 
+                   <hr>
+                   <h2>${cards.name}</h2>   
+                 <p>${cards.text}</p>
+                </div>`;
+
+const cardsContainer = document.getElementById('cards'); //ссылка для карточек 
+
+
+
+
+
+
+
+
+
+// function generateCards(cards) {
+//     var featureContainer = document.getElementById("features-container");
+//     if (!featureContainer) {
+//       console.error('Элемент с id "features-container" не найден');
+//       return;
+//     }
+
+//     cards.forEach(function (card) {
+//       var cardHTML = `
+//         <div class="feature" onclick="updateImage('${card.image || "img/default.jpg"}')">
+//           <hr class="thick-line">
+//           <h3>${card.card_name}</h3>
+//           <p>${card.card_text}</p>
+//         </div>`;
+//       featureContainer.insertAdjacentHTML("beforeend", cardHTML);
+//     });
+//   }
+
+//   fetch("https://jsonplaceholder.typicode.com/posts?_limit=3")
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (json) {
+//       var cards = json.map(function (post, index) {
+//         return {
+//           card_name: "Post " + (index + 1),
+//           card_text: post.body,
+//           image: "img/Frame 1625.jpg" 
+//         };
+//       });
+//       generateCards(cards);
+//     })
+//     .catch(function (error) {
+//       console.error("Ошибка при загрузке карточек:", error);
+//     });
+// });
+
+

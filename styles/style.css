@@ -75,6 +75,16 @@
 .loaded .preloader {
   display: none;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
 .container {
   width: 90%;
   max-width: 1200px;
@@ -188,7 +198,16 @@ header nav .Login:hover {
   text-decoration: none;
   color: #3D1EDD;
 }
-.slider_container {
+
+
+
+
+
+
+
+
+
+/* .slider_container {
   position: relative; 
   height: 600px; 
   background-color: black; 
@@ -238,6 +257,59 @@ header nav .Login:hover {
   font-size: 20px;
   border-radius: 5px;
 }
+ */
+
+
+.slider_container {
+    position: relative;
+    height: 580px;
+    background-color: black;
+    margin-top: 60px;
+}
+.slider {
+    position: relative;
+    height: 100%;
+}
+
+.hero-image {
+    position: absolute;
+    top: -130px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: none;
+    width: 63%;
+    height: 650px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.hero-image.active {
+    opacity: 1;
+}
+
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+
+
+
 .content_section_text1 {
   background-color: #fff;
   padding: 40px 0;

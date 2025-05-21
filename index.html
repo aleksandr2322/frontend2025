@@ -18,7 +18,7 @@
     window.setTimeout(function () {
       document.body.classList.add('loaded');
       document.body.classList.remove('loaded_hiding');
-    }, 500);
+    }, 1000);
   }
 </script>
     <div class="preloader">
@@ -49,7 +49,7 @@
             </div>
         </section>
 
-        <div class="slider_container">
+        <!-- <div class="slider_container">
             <div class="slider">
                 <div class="slide">
                     <img src="img/Rectangle 2.jpg" alt="image_1" class="image_1"> 
@@ -65,7 +65,15 @@
                 <button class="prev_slide">&lt;</button>
                 <button class="next_slide">&gt;</button>
             </div>
-        </div>
+        </div> -->
+        <section class="slider_container">
+            <div class="slider">
+                <img src="img/Slide1.jpg" alt="Image Slide 2" class="hero-image">
+                <img src="img/Slide2.jpg" alt="Image Slide 3" class="hero-image">
+                <img src="img/Slide3.jpg" alt="Image Slide 2" class="hero-image">
+            </div>
+    
+        </section>
 
         <section class="content_section_text1">
             <div class="container">
@@ -87,8 +95,11 @@
             <div class = "container">
                 <h1>Everything you want to know in one place.</h1>
             <img src="img/Frame 1625.svg" alt="forms image" class="forms-image">
-            <div class="features">
-                <div class="feature">
+           
+            <div class="features" id="cards"></div>
+            
+                <div class ="feature">
+                    
                     <hr>
                     <button class="btn">Professional Profile</button>
                     <div class="text">We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter</div>
