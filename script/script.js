@@ -68,7 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeLoginModal = loginModal.querySelector('.close');
     const closeRegisterModal = registerModal.querySelector('.close');
     const modalWindow = document.querySelector('.modal');
-
+    // const cards = document.getElementById('cards');
+    // const closecards=cards.querySelector('close');
 Login.addEventListener('click', function() {
     loginModal.style.display = "block";
 });
@@ -81,6 +82,12 @@ closeLoginModal.addEventListener('click', function() {
 closeRegisterModal.addEventListener('click', function() {
     registerModal.style.display = "none";
 });
+// Login.addEventListener('click', function() {
+//     text.style.display = "block";
+// } 
+// closeRegisterModal.addEventListener('click', function() {
+//     text.style.display = "none";
+// });
 modalWindow.addEventListener('click', (e) => {
     if (e.target === modalWindow) {
        modalWindow.classList.add('hide');
@@ -118,37 +125,90 @@ modalWindow.addEventListener('click', (e) => {
   window.updateImage = updateImage;
 
 
-const cards={
-   card_1: {
-       name: 'Professional Profile',
-       text: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
-   },
-    card_2:{
-       name: ' Best Portfolio',
-       text: ' We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
-   },
-    card_3:{
-        name: ' Powerful Resume',
-        text: ' We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by',
-    },
-
-}
 
 
-const template = `<div class="feature">
+
+
+// const cards={
+//    card_1: {
+//        name: 'Professional Profile',
+//        text: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
+//    },
+//     card_2:{
+//        name: ' Best Portfolio',
+//        text: ' We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
+//    },
+//     card_3:{
+//         name: ' Powerful Resume',
+//         text: ' We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by',
+//     },
+
+// }
+
+
+// const template = `<div class="feature">
                  
-                   <hr>
-                   <h2>${cards.name}</h2>   
-                 <p>${cards.text}</p>
-                </div>`;
+//                    <hr>
+//                    <h2>${cards.name}</h2>   
+//                  <p>${cards.text}</p>
+//                 </div>`;
 
-const cardsContainer = document.getElementById('cards'); //ссылка для карточек 
-
-
+// const cardsContainer = document.getElementById('cards'); //ссылка для карточек 
 
 
 
 
+
+// // Преобразуем объект в массив значений и создаем HTML для каждой карточки
+// const cardsHTML = Object.values(cards).map(card => `
+//   <div class="feature">
+//     <hr>
+//     <h2>${card.name}</h2>   
+//     <p>${card.text}</p>
+//   </div>
+// `).join('');
+
+// // Вставляем все карточки в контейнер
+// cardsContainer.innerHTML = cardsHTML;
+
+
+
+
+const cards = {
+  card_1: {
+    name: 'Professional Profile',
+    text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
+  },
+  card_2: {
+    name: 'Best Portfolio',
+    text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
+  },
+  card_3: {
+    name: 'Powerful Resume',
+    text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by',
+  },
+};
+
+const cardsContainer = document.getElementById('cards'); // ссылка для карточек
+
+// Проходим по всем ключам объекта cards
+for (const cardKey in cards) {
+  if (cards.hasOwnProperty(cardKey)) {
+    const card = cards[cardKey];
+    
+    // Создаем HTML для каждой карточки
+    const cardHTML = `
+      <div class="feature">
+        <hr>
+        <h2>${card.name}</h2>   
+        <p>${card.text}</p>
+      </div>
+    `;
+    
+    // Добавляем карточку в контейнер
+    cardsContainer.innerHTML += cardHTML;
+  }
+}
 
 
 

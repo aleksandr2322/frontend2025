@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Card Details</title>
+  <style>
+    .card-detail {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .back-link {
+      display: block;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="cardDetail" class="card-detail">
+    <!-- Сюда будет вставлено содержимое карточки -->
+  </div>
+  <a href="index.html" class="back-link">← Back to all cards</a>
+
+  <script>
+    // Получаем ID карточки из URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const cardId = urlParams.get('id');
+    
+    // Данные карточек (можно вынести в отдельный файл)
+    const cards = {
+      card_1: {
+        name: 'Professional Profile',
+        text: 'Full text for Professional Profile...',
+      },
+      card_2: {
+        name: 'Best Portfolio',
+        text: 'Full text for Best Portfolio...',
+      },
+      card_3: {
+        name: 'Powerful Resume',
+        text: 'Full text for Powerful Resume...',
+      },
+    };
+    
+    // Отображаем выбранную карточку
+    if (cardId && cards[cardId]) {
+      const card = cards[cardId];
+      document.getElementById('cardDetail').innerHTML = `
+        <h1>${card.name}</h1>
+        <hr>
+        <p>${card.text}</p>
+      `;
+      document.title = card.name;
+    } else {
+      document.getElementById('cardDetail').innerHTML = `
+        <h1>Card not found</h1>
+        <p>The requested card does not exist.</p>
+      `;
+    }
+  </script>
+</body>
+</html>
