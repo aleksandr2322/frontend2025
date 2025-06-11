@@ -174,51 +174,213 @@ modalWindow.addEventListener('click', (e) => {
 
 
 
-const cards = {
-  card_1: {
-    name: 'Professional Profile',
-    text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
-  },
-  card_2: {
-    name: 'Best Portfolio',
-    text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
-  },
-  card_3: {
-    name: 'Powerful Resume',
-    text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by',
-  },
-};
 
-const cardsContainer = document.getElementById('cards'); // ссылка для карточек
 
-// Проходим по всем ключам объекта cards
-for (const cardKey in cards) {
-  if (cards.hasOwnProperty(cardKey)) {
-    const card = cards[cardKey];
+
+
+
+
+
+
+
+
+
+
+// const cards = {
+//   card_1: {
+//     name: 'Professional Profile',
+//     text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
+//   },
+//   card_2: {
+//     name: 'Best Portfolio',
+//     text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter',
+//   },
+//   card_3: {
+//     name: 'Powerful Resume',
+//     text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by',
+//   },
+// };
+
+// const cardsContainer = document.getElementById('cards'); // ссылка для карточек
+
+// // Проходим по всем ключам объекта cards
+// for (const cardKey in cards) {
+//   if (cards.hasOwnProperty(cardKey)) {
+//     const card = cards[cardKey];
     
-    // Создаем HTML для каждой карточки
-    const cardHTML = `
-      <div class="feature">
-        <hr>
-        <h2>${card.name}</h2>   
-        <p>${card.text}</p>
-      </div>
-    `;
+//     // Создаем HTML для каждой карточки
+//     const cardHTML = `
+//       <div class="feature">
+//         <hr>
+//         <h2>${card.name}</h2>   
+//         <p>${card.text}</p>
+//       </div>
+//     `;
     
-    // Добавляем карточку в контейнер
-    cardsContainer.innerHTML += cardHTML;
-  }
-}
+//     // Добавляем карточку в контейнер
+//     cardsContainer.innerHTML += cardHTML;
+//   }
+// }
 
 
 
-// function generateCards(cards) {
-//     var featureContainer = document.getElementById("features-container");
-//     if (!featureContainer) {
-//       console.error('Элемент с id "features-container" не найден');
-//       return;
+
+
+
+
+
+
+
+// const cardsContainer = document.getElementById('cards');
+// // Добавляем индикатор загрузки
+// cardsContainer.innerHTML = '<p>Загрузка карточек...</p>';
+
+// // Получаем данные с сервера
+// fetch("https://jsonplaceholder.typicode.com/posts?_limit=3")
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Ошибка сети');
 //     }
+//     return response.json();
+//   })
+//   .then(posts => {
+//     // Очищаем контейнер
+//     cardsContainer.innerHTML = '';
+    
+//     // Преобразуем данные сервера в нужный формат
+//     const serverCards = {
+//       card_1: {
+//         name: posts[0].title,
+//         text: posts[0].body
+//       },
+//       card_2: {
+//         name: posts[1].title,
+//         text: posts[1].body
+//       },
+//       card_3: {
+//         name: posts[2].title,
+//         text: posts[2].body
+//       }
+//     };
+    
+//     // Используем ваш оригинальный код для отрисовки
+//     for (const cardKey in serverCards) {
+//       if (serverCards.hasOwnProperty(cardKey)) {
+//         const card = serverCards[cardKey];
+        
+//         const cardHTML = `
+//           <div class="feature">
+//             <hr>
+//             <h2>${card.name}</h2>   
+//             <p>${card.text}</p>
+//           </div>
+//         `;
+        
+//         cardsContainer.innerHTML += cardHTML;
+//       }
+//     }
+//   })
+//   .catch(error => {
+//     console.error('Ошибка:', error);
+//     cardsContainer.innerHTML = `
+//       <div class="error">
+//         <p>Не удалось загрузить карточки. Пожалуйста, попробуйте позже.</p>
+//         <button onclick="window.location.reload()">Обновить</button>
+//       </div>
+//     `;
+//   });
 
+
+
+
+
+
+
+
+
+const cardsContainer = document.getElementById('cards');
+
+// Show loading state
+cardsContainer.innerHTML = '<p>Loading content...</p>';
+
+// English content repository
+const englishContent = [
+  "We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter",
+  "We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter",
+  "We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by"
+];
+
+// Fetch data from server but use our English content
+fetch("https://jsonplaceholder.typicode.com/posts?_limit=3")
+  .then(response => {
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.json();
+  })
+  .then(posts => {
+    // Clear container
+    cardsContainer.innerHTML = '';
+    
+    // Create cards with English content
+    const serverCards = {
+      card_1: {
+        name: 'Professional Profile',
+        text: englishContent[0]
+      },
+      card_2: {
+        name: 'Best Portfolio',
+        text: englishContent[1]
+      },
+      card_3: {
+        name: 'Powerful Resume',
+        text: englishContent[2]
+      }
+    };
+    
+    // Render cards using your original template
+    for (const cardKey in serverCards) {
+      if (serverCards.hasOwnProperty(cardKey)) {
+        const card = serverCards[cardKey];
+        
+        cardsContainer.innerHTML += `
+          <div class="feature">
+            <hr>
+            <h2>${card.name}</h2>   
+            <p>${card.text}</p>
+          </div>
+        `;
+      }
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    // Fallback to original static English data
+    cardsContainer.innerHTML = '';
+    const fallbackCards = {
+      card_1: {
+        name: 'Professional Profile',
+        text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter'
+      },
+      card_2: {
+        name: 'Best Portfolio',
+        text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiter'
+      },
+      card_3: {
+        name: 'Powerful Resume',
+        text: 'We know finding the right job is stressful, so we\'ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by'
+      }
+    };
+    
+    for (const cardKey in fallbackCards) {
+      const card = fallbackCards[cardKey];
+      cardsContainer.innerHTML += `
+        <div class="feature">
+          <hr>
+          <h2>${card.name}</h2>   
+          <p>${card.text}</p>
+        </div>
+      `;
+    }
+  });
 //     cards.forEach(function (card) {
 //       var cardHTML = `
 //         <div class="feature" onclick="updateImage('${card.image || "img/default.jpg"}')">
@@ -248,5 +410,4 @@ for (const cardKey in cards) {
 //       console.error("Ошибка при загрузке карточек:", error);
 //     });
 // });
-
 
